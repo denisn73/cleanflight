@@ -842,7 +842,7 @@ static const struct {
     {timRotation,     .f.applyTimed = &applyLedThrustRingLayer},
 };
 
-// This function update color of WS2812B
+// This function update color of WS2812B.
 void updateLedStrip(void)
 {
 
