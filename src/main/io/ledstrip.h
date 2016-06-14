@@ -116,6 +116,7 @@ void ledStripInit(void);
 bool parseLedStripConfig(int ledIndex, const char *config);
 void updateLedStrip(void);
 void updateLedRing(void);
+void myLedAnim(void);
 
 void applyDefaultLedStripConfig(void);
 void generateLedConfig(int ledIndex, char *ledConfigBuffer, size_t bufferSize);

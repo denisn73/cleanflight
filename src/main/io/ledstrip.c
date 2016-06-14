@@ -859,6 +859,9 @@ void updateLedStrip(void)
     }
     ledStripEnabled = true;
 
+    myLedAnim();
+
+    /*
     uint32_t now = micros();
 
     // test all led timers, setting corresponding bits
@@ -890,6 +893,25 @@ void updateLedStrip(void)
     }
 
     ws2811UpdateStrip();
+    */
+}
+
+// 10ms
+unsigned int myIndex = 0;
+void myLedAnim(void) {
+	hsvColor_t color;
+	color.h = 240;
+	color.s = 100;
+				  color.v = 100; setLedHsv(myIndex,   &color);
+	if(myIndex>0) color.v = 80;  setLedHsv(myIndex-1, &color);
+	if(myIndex>1) color.v = 60;  setLedHsv(myIndex-2, &color);
+	if(myIndex>2) color.v = 40;  setLedHsv(myIndex-3, &color);
+	if(myIndex>3) color.v = 20;  setLedHsv(myIndex-4, &color);
+	if(myIndex>4) color.v = 0;   setLedHsv(myIndex-5, &color);
+
+	if(myIndex<65) myIndex++;
+	else myIndex = 0;
+	ws2811UpdateStrip();
 }
 
 bool parseColor(int index, const char *colorConfig)
